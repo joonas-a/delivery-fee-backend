@@ -1,5 +1,5 @@
 from math import ceil
-from datetime import datetime
+from datetime import datetime, timezone
 from pydantic import BaseModel
 
 
@@ -46,8 +46,9 @@ def fee_calculator(body: DeliveryDetails):
         if body.number_of_items >= 12:
             fee += 120
 
-    # Rush hour multiplier
-    parsedtime = datetime.fromisoformat(body.time)
+    # Rush hour multiplier (in UTC timezone)
+    parsedtime = datetime.fromisoformat(body.time).astimezone(timezone.utc)
+
     if parsedtime.date().isoweekday() == 5 and 15 <= parsedtime.time().hour < 19:
         fee *= 1.2
 
