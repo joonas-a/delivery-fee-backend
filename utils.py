@@ -24,7 +24,7 @@ def validate_input(body: DeliveryDetails):
         datetime.fromisoformat(body.time)
     except:
         return "Date in incorrect format"
-    return False
+    return None
 
 
 def fee_calculator(body: DeliveryDetails):
