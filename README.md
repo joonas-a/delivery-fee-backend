@@ -2,7 +2,7 @@
 
 ### Installation
 
-1. Have **Python 3.10** or newer installed
+1. Have **Python 3.11** or newer installed
 2. Install required dependencies with `pip install -r requirements.txt`
 
 ### Usage
